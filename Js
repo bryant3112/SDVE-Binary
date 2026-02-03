@@ -1,0 +1,34 @@
+Public class BinaryToDecimal {
+
+    Public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a binary number: ");
+        String binaryString = input.nextLine();
+
+        try {
+            int decimal = bin2Dec(binaryString);
+            System.out.println("Decimal equivalent: " + decimal);
+        } catch (BinaryFormatException e) {
+            System.out.println("Not a binary number");
+        }    
+        }   
+        
+    }
+Public static int bin2Dec(String binaryString) throws  BinaryformatException {
+    int decimalValue = 0
+
+    for (int i = 0; i < binaryString.length(); i++) {
+        char ch = binaryString.charAt(i);
+
+        if (ch != '0' && ch != '1') {
+            throw new BinaryFormatException("Not a binary number");
+        }
+
+        decimalValue = decimalValue * 2 + (ch - '0');
+    }
+
+    return decimalValue;
+}
+
+}
